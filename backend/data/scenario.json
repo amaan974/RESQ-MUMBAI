@@ -1,0 +1,302 @@
+{
+ "name": "Hypothetical Kurla–Sion–Chunabhatti monsoon flood scenario",
+ "disclaimer": "All operational inputs (ambulances, incidents, capacity, closures, shelters, clinic sites, flood zones) are SIMULATED for demonstration.",
+ "sos_locations": [
+  {
+   "id": "kurla",
+   "label": "Kurla West",
+   "lat": 19.066,
+   "lon": 72.879
+  },
+  {
+   "id": "sion",
+   "label": "Sion",
+   "lat": 19.044,
+   "lon": 72.863
+  },
+  {
+   "id": "chunabhatti",
+   "label": "Chunabhatti",
+   "lat": 19.052,
+   "lon": 72.87
+  }
+ ],
+ "ambulances": [
+  {
+   "id": "AMB-01",
+   "label": "Sion",
+   "lat": 19.045,
+   "lon": 72.864,
+   "status": "available"
+  },
+  {
+   "id": "AMB-02",
+   "label": "Kurla West (LBS Marg)",
+   "lat": 19.0738,
+   "lon": 72.8755,
+   "status": "available"
+  },
+  {
+   "id": "AMB-03",
+   "label": "Chembur",
+   "lat": 19.061,
+   "lon": 72.899,
+   "status": "available"
+  },
+  {
+   "id": "AMB-04",
+   "label": "Dharavi edge",
+   "lat": 19.04,
+   "lon": 72.858,
+   "status": "available"
+  },
+  {
+   "id": "AMB-05",
+   "label": "Tilak Nagar",
+   "lat": 19.068,
+   "lon": 72.895,
+   "status": "available"
+  },
+  {
+   "id": "AMB-06",
+   "label": "Kalina",
+   "lat": 19.074,
+   "lon": 72.864,
+   "status": "out_of_service"
+  }
+ ],
+ "hospitals": [
+  {
+   "id": "HOSP-A",
+   "name": "Lokmanya Tilak Hospital (Sion)",
+   "osm_id": "way/49681498",
+   "osm_mapped": true,
+   "lat": 19.036361,
+   "lon": 72.859201,
+   "beds_total": 20,
+   "beds_available": 3,
+   "eligible_types": [
+    "medical",
+    "trauma",
+    "flood_rescue"
+   ]
+  },
+  {
+   "id": "HOSP-B",
+   "name": "Bhabha Hospital (Kurla)",
+   "osm_id": "node/9215480148",
+   "osm_mapped": true,
+   "lat": 19.070846,
+   "lon": 72.878112,
+   "beds_total": 12,
+   "beds_available": 2,
+   "eligible_types": [
+    "medical",
+    "flood_rescue"
+   ]
+  },
+  {
+   "id": "HOSP-C",
+   "name": "K.J. Somaiya Hospital",
+   "osm_id": "way/1052052198",
+   "osm_mapped": true,
+   "lat": 19.04708,
+   "lon": 72.874927,
+   "beds_total": 15,
+   "beds_available": 2,
+   "eligible_types": [
+    "medical",
+    "trauma"
+   ]
+  },
+  {
+   "id": "HOSP-D",
+   "name": "Zen Multi Speciality Hospital (Chembur)",
+   "osm_id": "node/7663961471",
+   "osm_mapped": true,
+   "lat": 19.055935,
+   "lon": 72.896965,
+   "beds_total": 10,
+   "beds_available": 2,
+   "eligible_types": [
+    "medical",
+    "trauma",
+    "flood_rescue"
+   ]
+  },
+  {
+   "id": "HOSP-E",
+   "name": "Rajawadi Hospital (Ghatkopar)",
+   "osm_id": "node/14173965274",
+   "osm_mapped": true,
+   "lat": 19.078773,
+   "lon": 72.901365,
+   "beds_total": 10,
+   "beds_available": 1,
+   "eligible_types": [
+    "medical"
+   ]
+  }
+ ],
+ "seed_incidents": [
+  {
+   "type": "flood_rescue",
+   "priority": 2,
+   "label": "Kurla East — Nehru Nagar (scenario)",
+   "lat": 19.0635,
+   "lon": 72.8875
+  },
+  {
+   "type": "medical",
+   "priority": 1,
+   "label": "Sion Koliwada (scenario)",
+   "lat": 19.041,
+   "lon": 72.868
+  }
+ ],
+ "extra_incidents": [
+  {
+   "type": "trauma",
+   "priority": 3,
+   "label": "Eastern Express Hwy near Sion (scenario)",
+   "lat": 19.048,
+   "lon": 72.87
+  },
+  {
+   "type": "medical",
+   "priority": 2,
+   "label": "Chembur Naka (scenario)",
+   "lat": 19.056,
+   "lon": 72.899
+  },
+  {
+   "type": "flood_rescue",
+   "priority": 3,
+   "label": "Kurla — Mithi river bank (scenario)",
+   "lat": 19.075,
+   "lon": 72.873
+  },
+  {
+   "type": "medical",
+   "priority": 1,
+   "label": "Tilak Nagar (scenario)",
+   "lat": 19.067,
+   "lon": 72.896
+  }
+ ],
+ "shelters": [
+  {
+   "id": "SHL-1",
+   "name": "Shelter S-1 — school, Chembur side (simulated site)",
+   "lat": 19.059,
+   "lon": 72.895,
+   "capacity": 200
+  },
+  {
+   "id": "SHL-2",
+   "name": "Shelter S-2 — community hall, Sion (simulated site)",
+   "lat": 19.042,
+   "lon": 72.866,
+   "capacity": 150
+  },
+  {
+   "id": "SHL-3",
+   "name": "Shelter S-3 — ground, Vidyavihar (simulated site)",
+   "lat": 19.077,
+   "lon": 72.89,
+   "capacity": 300
+  }
+ ],
+ "evacuation_origins": [
+  {
+   "id": "EVO-1",
+   "name": "Kurla low-lying cluster (scenario)",
+   "lat": 19.069,
+   "lon": 72.874,
+   "people": 120
+  },
+  {
+   "id": "EVO-2",
+   "name": "Chunabhatti low-lying cluster (scenario)",
+   "lat": 19.051,
+   "lon": 72.873,
+   "people": 80
+  }
+ ],
+ "clinic_sites": [
+  {
+   "id": "CLN-1",
+   "name": "C-1 Kurla depot ground (hypothetical)",
+   "lat": 19.065,
+   "lon": 72.883
+  },
+  {
+   "id": "CLN-2",
+   "name": "C-2 Sion junction plot (hypothetical)",
+   "lat": 19.046,
+   "lon": 72.864
+  },
+  {
+   "id": "CLN-3",
+   "name": "C-3 Chembur ground (hypothetical)",
+   "lat": 19.06,
+   "lon": 72.893
+  },
+  {
+   "id": "CLN-4",
+   "name": "C-4 Chunabhatti plot (hypothetical)",
+   "lat": 19.053,
+   "lon": 72.874
+  }
+ ],
+ "staging_sites": [
+  {
+   "id": "STG-1",
+   "name": "Kurla West junction",
+   "lat": 19.068,
+   "lon": 72.88
+  },
+  {
+   "id": "STG-2",
+   "name": "Sion circle",
+   "lat": 19.043,
+   "lon": 72.862
+  },
+  {
+   "id": "STG-3",
+   "name": "Chembur naka",
+   "lat": 19.056,
+   "lon": 72.899
+  },
+  {
+   "id": "STG-4",
+   "name": "Chunabhatti",
+   "lat": 19.052,
+   "lon": 72.87
+  }
+ ],
+ "flood_zones": [
+  {
+   "id": "FZ-1",
+   "name": "Kurla low-lying zone",
+   "lat": 19.069,
+   "lon": 72.874,
+   "radius_m": 450
+  },
+  {
+   "id": "FZ-2",
+   "name": "Sion–Chunabhatti dip",
+   "lat": 19.049,
+   "lon": 72.869,
+   "radius_m": 380
+  },
+  {
+   "id": "FZ-3",
+   "name": "Chembur nallah zone",
+   "lat": 19.057,
+   "lon": 72.893,
+   "radius_m": 330
+  }
+ ],
+ "hospital_note": "Hospital names/locations from OpenStreetMap amenity=hospital (retrieved 2026-10-09, ODbL). Beds and eligible emergency types are SIMULATED, not real facility status."
+}

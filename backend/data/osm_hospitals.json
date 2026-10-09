@@ -1,0 +1,676 @@
+{
+ "meta": {
+  "source": "OpenStreetMap via OSMnx 2.1.1",
+  "license": "ODbL 1.0 \u2014 (c) OpenStreetMap contributors",
+  "retrieved_at": "2026-10-09T13:11:36.181289+00:00",
+  "bbox_wsen": [
+   72.855,
+   19.035,
+   72.905,
+   19.08
+  ],
+  "note": "Mapped facility locations only. NOT live capacity, NOT verified service capability."
+ },
+ "hospitals": [
+  {
+   "osm_id": "node/1398715651",
+   "name": "JOY Hospital",
+   "lat": 19.055877,
+   "lon": 72.897395
+  },
+  {
+   "osm_id": "node/1398717565",
+   "name": "Inlaks Hospital",
+   "lat": 19.046613,
+   "lon": 72.896422
+  },
+  {
+   "osm_id": "node/2238635335",
+   "name": "Ameeta Patil Nursing Home",
+   "lat": 19.062225,
+   "lon": 72.899729
+  },
+  {
+   "osm_id": "node/2319217775",
+   "name": "Mata Ramabai B Ambedkar Hospital",
+   "lat": 19.055714,
+   "lon": 72.894641
+  },
+  {
+   "osm_id": "node/3206033563",
+   "name": "maa hospital",
+   "lat": 19.058506,
+   "lon": 72.890405
+  },
+  {
+   "osm_id": "node/3289580677",
+   "name": "Kurla Nursing Room",
+   "lat": 19.070817,
+   "lon": 72.880679
+  },
+  {
+   "osm_id": "node/3532119818",
+   "name": "v care hospital intensive& unit care",
+   "lat": 19.063478,
+   "lon": 72.881788
+  },
+  {
+   "osm_id": "node/3532124714",
+   "name": "arpan nursing home",
+   "lat": 19.069393,
+   "lon": 72.87812
+  },
+  {
+   "osm_id": "node/3532124717",
+   "name": "fauziya hospital",
+   "lat": 19.062758,
+   "lon": 72.873176
+  },
+  {
+   "osm_id": "node/3532126359",
+   "name": "arayan hospital",
+   "lat": 19.06361,
+   "lon": 72.881927
+  },
+  {
+   "osm_id": "node/4848773727",
+   "name": "Mata Lachmi Hospital",
+   "lat": 19.035838,
+   "lon": 72.860982
+  },
+  {
+   "osm_id": "node/7042871859",
+   "name": "Niramaya General Hospital",
+   "lat": 19.050003,
+   "lon": 72.904471
+  },
+  {
+   "osm_id": "node/7042942734",
+   "name": "Dr.Sanjay Sonar Laparoscopy and Scopy Center",
+   "lat": 19.059025,
+   "lon": 72.897313
+  },
+  {
+   "osm_id": "node/7042955283",
+   "name": "Shree Chembur Jain Medical Relief Centre",
+   "lat": 19.056374,
+   "lon": 72.89574
+  },
+  {
+   "osm_id": "node/7042963296",
+   "name": "Yash Eye Care and Polyclinic",
+   "lat": 19.060839,
+   "lon": 72.898554
+  },
+  {
+   "osm_id": "node/7043029973",
+   "name": "Nayak Medicare - Chembur",
+   "lat": 19.045683,
+   "lon": 72.902501
+  },
+  {
+   "osm_id": "node/7043035499",
+   "name": "Dr. Das Hospital - Chembur (Mumbai)",
+   "lat": 19.059699,
+   "lon": 72.899754
+  },
+  {
+   "osm_id": "node/7043055857",
+   "name": "Laxmi Maternity and Nursing Home, Mumbai",
+   "lat": 19.057086,
+   "lon": 72.898885
+  },
+  {
+   "osm_id": "node/7043060180",
+   "name": "Hegde Hospital",
+   "lat": 19.060662,
+   "lon": 72.899714
+  },
+  {
+   "osm_id": "node/7043077889",
+   "name": "Dr Nandita Rane's Eye Clinic",
+   "lat": 19.069437,
+   "lon": 72.903854
+  },
+  {
+   "osm_id": "node/7043106193",
+   "name": "Patankar's Hand and Limb Reconstruction Clinic",
+   "lat": 19.061003,
+   "lon": 72.898597
+  },
+  {
+   "osm_id": "node/7043125151",
+   "name": "Icon Hospital and Research Centre",
+   "lat": 19.061819,
+   "lon": 72.898084
+  },
+  {
+   "osm_id": "node/7043188926",
+   "name": "Inlaks General Hospital",
+   "lat": 19.046762,
+   "lon": 72.893417
+  },
+  {
+   "osm_id": "node/7043233247",
+   "name": "Swastik Hospital and Research Centre, Mumbai",
+   "lat": 19.055218,
+   "lon": 72.88989
+  },
+  {
+   "osm_id": "node/7043236781",
+   "name": "Sitla Hospital",
+   "lat": 19.052663,
+   "lon": 72.891166
+  },
+  {
+   "osm_id": "node/7044669600",
+   "name": "Tara Neo Surg Hospital",
+   "lat": 19.075759,
+   "lon": 72.903055
+  },
+  {
+   "osm_id": "node/7044692216",
+   "name": "The Eye Super Specialities",
+   "lat": 19.079303,
+   "lon": 72.902154
+  },
+  {
+   "osm_id": "node/7044745238",
+   "name": "Advanced Orthopaedic and Super Speciality Center",
+   "lat": 19.079153,
+   "lon": 72.903943
+  },
+  {
+   "osm_id": "node/7045020590",
+   "name": "V Care Hospital and Icu",
+   "lat": 19.062706,
+   "lon": 72.881587
+  },
+  {
+   "osm_id": "node/7045155680",
+   "name": "Universal Eye Clinic and Surgical Centre",
+   "lat": 19.043144,
+   "lon": 72.893694
+  },
+  {
+   "osm_id": "node/7045324038",
+   "name": "Aryan Hospital and Iccu - Kurla-Mumbai",
+   "lat": 19.063008,
+   "lon": 72.882391
+  },
+  {
+   "osm_id": "node/7046488275",
+   "name": "Kolekar Hospital & ICCU",
+   "lat": 19.059882,
+   "lon": 72.901129
+  },
+  {
+   "osm_id": "node/7046777602",
+   "name": "Surana Sethia Hospital And Research Centre",
+   "lat": 19.053555,
+   "lon": 72.887006
+  },
+  {
+   "osm_id": "node/7047430578",
+   "name": "Durga Maternity and Surgical Nursing Home",
+   "lat": 19.075849,
+   "lon": 72.860824
+  },
+  {
+   "osm_id": "node/7048863374",
+   "name": "Varsha Parekh Maternity and Surgical Hospital",
+   "lat": 19.061032,
+   "lon": 72.898513
+  },
+  {
+   "osm_id": "node/7048966028",
+   "name": "Saraswati Eye Hospital, Mumbai",
+   "lat": 19.079996,
+   "lon": 72.904321
+  },
+  {
+   "osm_id": "node/7051595414",
+   "name": "Mangal Anand Hospital",
+   "lat": 19.056599,
+   "lon": 72.89054
+  },
+  {
+   "osm_id": "node/7053266063",
+   "name": "Dr. Deosthaci's Eye Care Centre",
+   "lat": 19.041898,
+   "lon": 72.864093
+  },
+  {
+   "osm_id": "node/7054759108",
+   "name": "Oma Hospital",
+   "lat": 19.051268,
+   "lon": 72.901816
+  },
+  {
+   "osm_id": "node/7054852418",
+   "name": "Krishna Eye Centre",
+   "lat": 19.044428,
+   "lon": 72.865166
+  },
+  {
+   "osm_id": "node/7055036574",
+   "name": "Rushabh Eye Hospital and Laser Centre",
+   "lat": 19.059445,
+   "lon": 72.900081
+  },
+  {
+   "osm_id": "node/7059172378",
+   "name": "Jain Eye Clinic",
+   "lat": 19.079644,
+   "lon": 72.904319
+  },
+  {
+   "osm_id": "node/7065561525",
+   "name": "Dr Chauhans Sanjeevani Hospital",
+   "lat": 19.069963,
+   "lon": 72.904769
+  },
+  {
+   "osm_id": "node/7067373861",
+   "name": "Despande Nursing Home",
+   "lat": 19.070441,
+   "lon": 72.875106
+  },
+  {
+   "osm_id": "node/7068096871",
+   "name": "Sai Kripa Childrens Hospital",
+   "lat": 19.060668,
+   "lon": 72.899638
+  },
+  {
+   "osm_id": "node/7070054648",
+   "name": "Sai Baba Hospital, Mumbai",
+   "lat": 19.035349,
+   "lon": 72.896094
+  },
+  {
+   "osm_id": "node/7070354910",
+   "name": "Bakul Parekh Children Hospital",
+   "lat": 19.079143,
+   "lon": 72.903852
+  },
+  {
+   "osm_id": "node/7070857468",
+   "name": "Daycare Angels",
+   "lat": 19.056534,
+   "lon": 72.889527
+  },
+  {
+   "osm_id": "node/7073537782",
+   "name": "Sunny Childrens Hospital",
+   "lat": 19.052864,
+   "lon": 72.89783
+  },
+  {
+   "osm_id": "node/7080413752",
+   "name": "Tandon Hospital",
+   "lat": 19.0597,
+   "lon": 72.899677
+  },
+  {
+   "osm_id": "node/7085422809",
+   "name": "Apex Kidney Care Pvt. Ltd.",
+   "lat": 19.061144,
+   "lon": 72.894872
+  },
+  {
+   "osm_id": "node/7086758044",
+   "name": "Lifecare Hospital",
+   "lat": 19.046676,
+   "lon": 72.857498
+  },
+  {
+   "osm_id": "node/7087131468",
+   "name": "Prarushi Healthcare Pvt Ltd / Kusumesh Chandra Maternity Hospital",
+   "lat": 19.06265,
+   "lon": 72.881615
+  },
+  {
+   "osm_id": "node/7225067112",
+   "name": "Kalina Hospital",
+   "lat": 19.078004,
+   "lon": 72.86302
+  },
+  {
+   "osm_id": "node/7225067179",
+   "name": "Matoshri Ramabai Ambedkar Maternity Hospital",
+   "lat": 19.056203,
+   "lon": 72.894763
+  },
+  {
+   "osm_id": "node/7225067271",
+   "name": "L.T.Muncipal Medical College and Sion Hospital",
+   "lat": 19.036919,
+   "lon": 72.858205
+  },
+  {
+   "osm_id": "node/7663961403",
+   "name": "Chandra Maternity Hospital",
+   "lat": 19.042245,
+   "lon": 72.894166
+  },
+  {
+   "osm_id": "node/7663961416",
+   "name": "Lions Club Medical Centre General Hospital",
+   "lat": 19.061542,
+   "lon": 72.872554
+  },
+  {
+   "osm_id": "node/7663961417",
+   "name": "Buddh Colony BMC Hospital",
+   "lat": 19.079786,
+   "lon": 72.882718
+  },
+  {
+   "osm_id": "node/7663961428",
+   "name": "Kankal Hospital Child Specialist",
+   "lat": 19.068348,
+   "lon": 72.901948
+  },
+  {
+   "osm_id": "node/7663961434",
+   "name": "Sai Hospital",
+   "lat": 19.054452,
+   "lon": 72.891364
+  },
+  {
+   "osm_id": "node/7663961436",
+   "name": "Muskaan Hospital",
+   "lat": 19.078367,
+   "lon": 72.880408
+  },
+  {
+   "osm_id": "node/7663961443",
+   "name": "Habib Hospital",
+   "lat": 19.078247,
+   "lon": 72.880101
+  },
+  {
+   "osm_id": "node/7663961444",
+   "name": "Shiv Hospital",
+   "lat": 19.04119,
+   "lon": 72.894087
+  },
+  {
+   "osm_id": "node/7663961446",
+   "name": "RCF Hospital",
+   "lat": 19.040567,
+   "lon": 72.897252
+  },
+  {
+   "osm_id": "node/7663961454",
+   "name": "Alphine Life Solutions General Hospital",
+   "lat": 19.072612,
+   "lon": 72.871065
+  },
+  {
+   "osm_id": "node/7663961463",
+   "name": "Santrupti Hospital",
+   "lat": 19.053227,
+   "lon": 72.876813
+  },
+  {
+   "osm_id": "node/7663961471",
+   "name": "Zen Multi Speciality Hospital",
+   "lat": 19.055935,
+   "lon": 72.896965
+  },
+  {
+   "osm_id": "node/7663961472",
+   "name": "Shrimati Diwaliben Mohanlal Mehta Maa Sarvasadharan Rugnalay Hospital",
+   "lat": 19.061992,
+   "lon": 72.896719
+  },
+  {
+   "osm_id": "node/7663961476",
+   "name": "Chandra Hospital",
+   "lat": 19.041382,
+   "lon": 72.894743
+  },
+  {
+   "osm_id": "node/7663961478",
+   "name": "Shree Hospital",
+   "lat": 19.060533,
+   "lon": 72.900096
+  },
+  {
+   "osm_id": "node/7663961479",
+   "name": "Prathamesh Hospital",
+   "lat": 19.052772,
+   "lon": 72.87496
+  },
+  {
+   "osm_id": "node/7663961493",
+   "name": "Shashikant Hospital",
+   "lat": 19.061966,
+   "lon": 72.901475
+  },
+  {
+   "osm_id": "node/7664032212",
+   "name": "Resham Hospital",
+   "lat": 19.045633,
+   "lon": 72.859634
+  },
+  {
+   "osm_id": "node/7664032232",
+   "name": "Sion Hospital",
+   "lat": 19.036381,
+   "lon": 72.859866
+  },
+  {
+   "osm_id": "node/7664032240",
+   "name": "Lelavati Hospital",
+   "lat": 19.04033,
+   "lon": 72.855322
+  },
+  {
+   "osm_id": "node/7664032243",
+   "name": "Lifecare Hospital",
+   "lat": 19.047933,
+   "lon": 72.857919
+  },
+  {
+   "osm_id": "node/8797197801",
+   "name": "Dalvi Nursing Home",
+   "lat": 19.052686,
+   "lon": 72.873212
+  },
+  {
+   "osm_id": "node/9215480148",
+   "name": "Bhabha Hospital",
+   "lat": 19.070846,
+   "lon": 72.878112
+  },
+  {
+   "osm_id": "node/9470829702",
+   "name": "Satvic Hospital",
+   "lat": 19.051942,
+   "lon": 72.894684
+  },
+  {
+   "osm_id": "node/10172914421",
+   "name": "Fauziya hospital",
+   "lat": 19.062779,
+   "lon": 72.873177
+  },
+  {
+   "osm_id": "node/10172914423",
+   "name": "bhabha hospital",
+   "lat": 19.070872,
+   "lon": 72.878113
+  },
+  {
+   "osm_id": "node/10172914425",
+   "name": "Alphine life solutions general hospital",
+   "lat": 19.072649,
+   "lon": 72.871052
+  },
+  {
+   "osm_id": "node/10172914426",
+   "name": "Dalvi nursing home",
+   "lat": 19.052727,
+   "lon": 72.873218
+  },
+  {
+   "osm_id": "node/10172914427",
+   "name": "Prathamesh hospital",
+   "lat": 19.0528,
+   "lon": 72.87496
+  },
+  {
+   "osm_id": "node/10172914428",
+   "name": "Brihanmumbai mucipality Hospital",
+   "lat": 19.053289,
+   "lon": 72.875186
+  },
+  {
+   "osm_id": "node/10172914429",
+   "name": "Santrupti hospital",
+   "lat": 19.053224,
+   "lon": 72.876812
+  },
+  {
+   "osm_id": "node/10172914433",
+   "name": "Dr.Sanjay sonar laparoscopy and scopy centre",
+   "lat": 19.05903,
+   "lon": 72.897311
+  },
+  {
+   "osm_id": "node/10172914443",
+   "name": "Amita Patil Nursing Home",
+   "lat": 19.062253,
+   "lon": 72.899724
+  },
+  {
+   "osm_id": "node/10172914444",
+   "name": "Chandra maternity Hospital",
+   "lat": 19.042268,
+   "lon": 72.894154
+  },
+  {
+   "osm_id": "node/10172914445",
+   "name": "Chandra Hospital",
+   "lat": 19.041405,
+   "lon": 72.894745
+  },
+  {
+   "osm_id": "node/10172914446",
+   "name": "Shiv Hospital",
+   "lat": 19.041219,
+   "lon": 72.89408
+  },
+  {
+   "osm_id": "node/10172914447",
+   "name": "RCF Hospital",
+   "lat": 19.040613,
+   "lon": 72.897264
+  },
+  {
+   "osm_id": "node/10172914448",
+   "name": "Nayak medicare -chembur",
+   "lat": 19.045681,
+   "lon": 72.902499
+  },
+  {
+   "osm_id": "node/10172914449",
+   "name": "Inlaska Hospital",
+   "lat": 19.046654,
+   "lon": 72.896414
+  },
+  {
+   "osm_id": "node/11430465717",
+   "name": "Noble chemist",
+   "lat": 19.07712,
+   "lon": 72.902258
+  },
+  {
+   "osm_id": "node/14173965274",
+   "name": "Rajawadi Hospital",
+   "lat": 19.078773,
+   "lon": 72.901365
+  },
+  {
+   "osm_id": "node/14174264968",
+   "name": "Dr. Maunil Ajay Bhuta",
+   "lat": 19.038002,
+   "lon": 72.859655
+  },
+  {
+   "osm_id": "node/14174836460",
+   "name": "Dr. Anup Khatri Bone & Joint Clinic",
+   "lat": 19.068849,
+   "lon": 72.899336
+  },
+  {
+   "osm_id": "way/49681498",
+   "name": "Lokmanya Tilak Hospital",
+   "lat": 19.036361,
+   "lon": 72.859201
+  },
+  {
+   "osm_id": "way/154837118",
+   "name": "Niron Hospital and Research Center",
+   "lat": 19.077019,
+   "lon": 72.8585
+  },
+  {
+   "osm_id": "way/203215801",
+   "name": "Brihanmumbai Municipalty Hospital",
+   "lat": 19.053269,
+   "lon": 72.8752
+  },
+  {
+   "osm_id": "way/260786332",
+   "name": "CritiCare Asia Hospital, Kurla",
+   "lat": 19.076013,
+   "lon": 72.886133
+  },
+  {
+   "osm_id": "way/315510913",
+   "name": "Maa General Hospital",
+   "lat": 19.061976,
+   "lon": 72.896501
+  },
+  {
+   "osm_id": "way/353181448",
+   "name": "New Noor Hospital",
+   "lat": 19.076208,
+   "lon": 72.878003
+  },
+  {
+   "osm_id": "way/430418378",
+   "name": "Asian Heart Institute",
+   "lat": 19.06525,
+   "lon": 72.860861
+  },
+  {
+   "osm_id": "way/1052052198",
+   "name": "K.J. Somaiya Hospital and Research Centre",
+   "lat": 19.04708,
+   "lon": 72.874927
+  },
+  {
+   "osm_id": "way/1126997792",
+   "name": "Sushrut Hospital and Research Centre",
+   "lat": 19.056571,
+   "lon": 72.889446
+  },
+  {
+   "osm_id": "way/1410330978",
+   "name": "Asian",
+   "lat": 19.06525,
+   "lon": 72.860861
+  },
+  {
+   "osm_id": "way/1413471846",
+   "name": "Sion Hospital",
+   "lat": 19.034844,
+   "lon": 72.85823
+  }
+ ]
+}

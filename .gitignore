@@ -1,0 +1,13 @@
+# OS / editor
+.DS_Store
+.claude/
+
+# Python
+backend/.venv/
+backend/cache/
+**/__pycache__/
+**/.pytest_cache/
+
+# Node
+frontend/node_modules/
+frontend/dist/

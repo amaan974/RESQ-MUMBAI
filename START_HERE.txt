@@ -1,0 +1,11 @@
+RESQ Mumbai — Claude Code context pack
+
+1. Extract ZIP to the project folder, e.g. resq-mumbai/.
+2. Keep the docs/ files and reference/HC05_OFFICIAL_PROBLEM.pdf in the project.
+3. From project root, run `claude`.
+4. Paste this short launch prompt:
+
+Read CLAUDE.md, then docs/MVP_CONTRACT.md, docs/DATA_AND_SAFETY.md, docs/ACCEPTANCE_TESTS.md and docs/DEMO_RUNBOOK.md. Consult reference/HC05_OFFICIAL_PROBLEM.pdf (page 5) for official problem requirements and reference/dashboard_reference.png for UI direction. Build the application now in tested phases. First make a real graph-based SOS -> ambulance -> incident -> hospital computation work with constraint tests, then integrate dashboard and SOS, then dynamic closures, and finally minimal remaining HC-05 functions. Use real Mumbai OSM data when obtainable in 8 minutes, otherwise clearly label synthetic fallback. Keep all operational inputs simulated, no actual emergency integrations. Enforce actual pass/fail tests; report incomplete features. Begin implementing immediately, with progress recorded in BUILD_STATUS.md. Do not spend more than two hours on the MVP; stop feature work with 25 minutes remaining for QA/demo.
+
+5. Do not paste the full long master prompt AND all source files repeatedly. The project files are the durable context.
+6. Ensure any code is created only in the hackathon-permitted development window, consistent with event rules.
