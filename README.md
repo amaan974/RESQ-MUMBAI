@@ -46,8 +46,10 @@ functions (e.g. Vercel's) would lose or split state between invocations. The fro
    `resq-mumbai-api`: rootDir `backend`, `pip install -r requirements.txt`, `uvicorn app.main:app --host 0.0.0.0 --port $PORT`,
    Python 3.14.2. Wait for the deploy, then open `https://<service>.onrender.com/api/state` and check it returns JSON.
 2. **Frontend on Vercel:** set the project's Root Directory to `frontend` (Vite preset: `npm run build` → `dist`).
-   Add the environment variable **`VITE_API_BASE` = `https://<service>.onrender.com`** (no trailing slash, no `/api`).
-   Then **redeploy**: Vite bakes the value in at build time. `frontend/vercel.json` rewrites all paths to `index.html`,
+   The backend URL comes from `frontend/.env.production` (`VITE_API_BASE=https://resq-mumbai-api.onrender.com`). Vite
+   reads it at build time, so pushing to `main` is enough. To use a different backend, edit that file, or set `VITE_API_BASE`
+   in **Vercel → Settings → Environment Variables** (which overrides it) and redeploy. GitHub repository/environment
+   variables are *not* seen by Vercel builds. `frontend/vercel.json` rewrites all paths to `index.html`,
    so `/sos` works on direct load.
 3. CORS is open (`*`) on the API; the simulation has no authentication or personal data.
 
