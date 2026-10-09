@@ -134,15 +134,26 @@ export class ApiError extends Error {
   constructor(status: number, message: string) { super(message); this.status = status }
 }
 
+// Local dev: empty -> same-origin /api (Vite proxies to :8000).
+// Hosted frontend (e.g. Vercel): set VITE_API_BASE to the backend origin, e.g. https://resq-mumbai-api.onrender.com
+export const API_BASE = ((import.meta.env.VITE_API_BASE as string | undefined) ?? '').replace(/\/+$/, '')
+
 async function call<T>(method: string, path: string, body?: unknown): Promise<T> {
-  const r = await fetch(`/api${path}`, {
+  const url = `${API_BASE}/api${path}`
+  const r = await fetch(url, {
     method,
     headers: body !== undefined ? { 'Content-Type': 'application/json' } : undefined,
     body: body !== undefined ? JSON.stringify(body) : undefined,
   })
   const text = await r.text()
-  const data = text ? JSON.parse(text) : null
-  if (!r.ok) throw new ApiError(r.status, (data && (data.detail as string)) || r.statusText)
+  let data: unknown = null
+  try {
+    data = text ? JSON.parse(text) : null
+  } catch {
+    throw new ApiError(r.status, `API at ${url} returned non-JSON (HTTP ${r.status}). ` +
+      (API_BASE ? 'Is the backend running?' : 'No backend configured: set VITE_API_BASE to the backend URL and redeploy.'))
+  }
+  if (!r.ok) throw new ApiError(r.status, ((data as { detail?: string } | null)?.detail) || r.statusText)
   return data as T
 }
 

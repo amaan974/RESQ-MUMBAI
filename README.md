@@ -27,15 +27,34 @@ cd frontend && npm install && npm run dev
 - Citizen SOS (simulation): http://localhost:5173/sos
 - API docs: http://127.0.0.1:8000/docs
 
-The backend venv (`backend/.venv`, Python 3.14) already has fastapi, uvicorn, networkx, osmnx, pytest and requests installed.
-To rebuild it elsewhere:
+Backend dependencies are pinned in `backend/requirements.txt` (runtime) and `backend/requirements-dev.txt` (+ tests).
+`osmnx` is only needed to re-fetch OSM data. To create the environment on a new machine (Python 3.14):
 
 ```bash
-cd backend && python3 -m venv .venv && .venv/bin/pip install fastapi uvicorn networkx requests pytest httpx osmnx
+cd backend && python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
 ```
 
 Offline fallback: `RESQ_SYNTHETIC=1` (or a missing `data/osm_graph.json`) loads a generated grid. The UI then labels it
 **SYNTHETIC ROAD NETWORK**.
+
+## Deploy (Render backend + Vercel frontend)
+
+The backend keeps the live scenario **in memory**, so it must run as **one long-running process**. Serverless
+functions (e.g. Vercel's) would lose or split state between invocations. The frontend is a static site.
+
+1. **Backend on Render (free):** Render dashboard → **New → Blueprint** → pick this repo. `render.yaml` creates
+   `resq-mumbai-api`: rootDir `backend`, `pip install -r requirements.txt`, `uvicorn app.main:app --host 0.0.0.0 --port $PORT`,
+   Python 3.14.2. Wait for the deploy, then open `https://<service>.onrender.com/api/state` and check it returns JSON.
+2. **Frontend on Vercel:** set the project's Root Directory to `frontend` (Vite preset: `npm run build` → `dist`).
+   Add the environment variable **`VITE_API_BASE` = `https://<service>.onrender.com`** (no trailing slash, no `/api`).
+   Then **redeploy**: Vite bakes the value in at build time. `frontend/vercel.json` rewrites all paths to `index.html`,
+   so `/sos` works on direct load.
+3. CORS is open (`*`) on the API; the simulation has no authentication or personal data.
+
+Notes:
+- Render's free tier sleeps after ~15 min idle. The first request then takes ~1 min, and the scenario restarts from
+  its deterministic initial state. Open `/api/state` a minute before a demo.
+- Without `VITE_API_BASE`, a hosted frontend shows "No backend configured" (the `/api` proxy exists only in `npm run dev`).
 
 ## Tests
 

@@ -1,0 +1,14 @@
+# Render Blueprint for the RESQ Mumbai API (one long-running process: scenario state is in memory).
+# Render dashboard -> New -> Blueprint -> select this repo.
+services:
+  - type: web
+    name: resq-mumbai-api
+    runtime: python
+    rootDir: backend
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/state
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.14.2

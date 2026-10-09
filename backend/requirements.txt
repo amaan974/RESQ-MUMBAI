@@ -1,0 +1,7 @@
+# Runtime dependencies for the API server (versions the test suite ran against).
+# osmnx is only needed to re-fetch OSM data (fetch_osm.py / fetch_facilities.py), not to run the app.
+fastapi==0.143.0
+uvicorn==0.54.0
+networkx==3.7
+requests==2.34.2
+pydantic==2.14.0
