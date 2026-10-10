@@ -80,7 +80,7 @@ class RoadGraph:
                         edges.append({"u": a, "v": b, "length_m": spacing_m, "highway": "secondary", "name": f"Synthetic {a}-{b}"})
                         edges.append({"u": b, "v": a, "length_m": spacing_m, "highway": "secondary", "name": f"Synthetic {a}-{b}"})
         meta = {"source": "Generated offline grid", "type": "SYNTHETIC ROAD NETWORK", "retrieved_at": None,
-                "license": "n/a", "note": "Fallback only — NOT Mumbai's street network"}
+                "license": "n/a", "note": "Fallback only. NOT Mumbai's street network"}
         return cls(nodes, edges, meta)
 
     def _index_reverse_twins(self) -> dict[str, str]:

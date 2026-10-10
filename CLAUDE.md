@@ -32,5 +32,12 @@ One React + TypeScript + Vite + Leaflet frontend; one Python + FastAPI + Network
 ## Two-hour timeboxes (targets, not guarantees)
 0–10m contracts/setup; 10–40m backend graph/routing/optimizer/tests; 40–65m command dashboard; 65–80m SOS integration; 80–95m event simulation and minimal evacuation/clinic features; 95–110m tests; 110–120m demo/freeze. At 95m STOP adding features. If graph acquisition fails after ~8m, explicitly label and switch to offline **synthetic demonstration graph**; preserve functional optimization.
 
+## Current frontend structure
+- `frontend/src/store.tsx` is the single polling loop.
+- `pages/` holds Dispatch Center, Disaster Simulation, Resource Planning, Analytics & Reports and Data & Sources.
+- `components/` holds the shell and dispatch panels; `lib/derive.ts` holds pure, unit-tested display logic.
+- The visual reference is `reference/approved_dispatch_ui.png`. Its numbers and names are illustrative; always render backend data.
+- No em dashes in user-facing copy. Never add fake live badges, search, accounts or decorative controls.
+
 ## Required finish state
 Runnable backend/frontend with startup instructions, reproducible reset, tests, source and assumption disclosures, working features and known gaps. Do not say 'working' unless tested.

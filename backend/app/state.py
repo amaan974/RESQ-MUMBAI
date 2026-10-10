@@ -96,7 +96,7 @@ class Scenario:
         if prev and time.monotonic() - prev[0] < DUPLICATE_WINDOW_S and self.incidents[prev[1]]["status"] in ACTIVE:
             return self.incidents[prev[1]], True
         loc = self.sos_locations[location_id]
-        inc = self._new_incident(emergency_type, 2, f"SOS — {loc['label']}", loc["node"], "citizen_sos", False)
+        inc = self._new_incident(emergency_type, 2, f"SOS: {loc['label']}", loc["node"], "citizen_sos", False)
         self.sos_index[key] = (time.monotonic(), inc["id"])
         self.log("sos", f"{inc['id']} simulated SOS received: {emergency_type} at {loc['label']} "
                         f"(default priority MEDIUM, awaiting dispatcher confirmation)")
@@ -145,7 +145,7 @@ class Scenario:
                     self.graph.closed.add(k)
                     closed.append(k)
         names = sorted({self.graph.edges[k]["name"] or "unnamed road" for k in closed})
-        self.log("closure", f"Confirmed closure (simulated): {len(closed)} directed edge(s) on {', '.join(names) or '—'}")
+        self.log("closure", f"Confirmed closure (simulated): {len(closed)} directed edge(s) on {', '.join(names) or 'unnamed road'}")
         self.replan("road closure")
         return closed
 
@@ -324,9 +324,9 @@ class Scenario:
             self.ambulances[d["ambulance_id"]]["node"] = node
             if phase != before:
                 self.log("clock", f"{d['ambulance_id']} ({d['id']}): {before} -> {phase}"
-                                  + (" — awaiting dispatcher handover confirmation" if phase == "at_hospital" else ""))
+                                  + (", awaiting dispatcher handover confirmation" if phase == "at_hospital" else ""))
             if d["blocked"]:
-                self.log("alert", f"{d['ambulance_id']} ({d['id']}) holding before a closed road — reroute needs approval")
+                self.log("alert", f"{d['ambulance_id']} ({d['id']}) holding before a closed road; reroute needs approval")
         self.log("clock", f"Simulation clock advanced {int(seconds)} s -> T+{int(self.sim_time_s // 60)}:{int(self.sim_time_s % 60):02d}")
         self.replan("clock advance")
         return {"sim_time_s": self.sim_time_s}
@@ -388,7 +388,7 @@ class Scenario:
         if d["status"] == "recommended" and h["beds_available"] <= 0:
             probs.append(f"{h['id']} reports no available beds")
         if d["status"] == "approved" and h["beds_available"] <= 0 and h.get("full_after_approval"):
-            probs.append(f"{h['id']} reported full after approval — confirm bed with facility")
+            probs.append(f"{h['id']} reported full after approval; confirm bed with facility")
         if d["status"] == "recommended" and self.ambulances[d["ambulance_id"]]["status"] != "available":
             probs.append(f"{d['ambulance_id']} no longer available")
         return probs
@@ -416,7 +416,7 @@ class Scenario:
                 inc["status"], inc["reason"], inc["decision_id"] = "infeasible", plan.infeasible_reasons.get(iid), None
                 if old:
                     self._supersede(old, trigger, plan.infeasible_reasons.get(iid))
-                    changes.append(f"{iid}: recommendation withdrawn — {plan.infeasible_reasons.get(iid)}")
+                    changes.append(f"{iid}: recommendation withdrawn: {plan.infeasible_reasons.get(iid)}")
                 continue
             a, h = ah
             r1 = self.graph.route(self.ambulances[a]["node"], inc["node"])
@@ -514,7 +514,7 @@ class Scenario:
         iid = inc["id"]
         t1, t2 = p.t_resp[(a, iid)], p.t_trans[(iid, h)]
         out = [f"Priority {PRIORITY_LABEL[inc['priority']]}"
-               + ("" if inc["priority_confirmed"] else " (default — dispatcher has not confirmed)")]
+               + ("" if inc["priority_confirmed"] else " (default, dispatcher has not confirmed)")]
         near_a = min(((t, x) for (x, i), t in p.t_resp.items() if i == iid), default=None)
         if near_a and near_a[1] == a:
             out.append(f"{a} is the nearest available ambulance on open roads ({mins(t1)})")
@@ -590,7 +590,7 @@ class Scenario:
         if not cands:
             any_reach = any(s["node"] in times for s in self.shelters.values())
             why = ("No shelter with capacity >= %d people is reachable on open roads" % o["people"]) if any_reach else \
-                "Origin is cut off from every shelter by confirmed closures — no road evacuation route; escalate for non-road rescue assessment"
+                "Origin is cut off from every shelter by confirmed closures. No road evacuation route; escalate for non-road rescue assessment"
             res = {"origin_id": origin_id, "status": "infeasible", "route": None, "shelter_id": None, "reason": why}
         else:
             t, sid = cands[0]
@@ -683,7 +683,7 @@ class Scenario:
         hid = f"TMP-{site_id}"
         if hid in self.hospitals:
             raise PermissionError(f"temporary post already deployed at {site_id}")
-        self.hospitals[hid] = {"id": hid, "name": f"Temporary medical post — {site['name']}", "node": site["node"],
+        self.hospitals[hid] = {"id": hid, "name": f"Temporary medical post: {site['name']}", "node": site["node"],
                                "beds_total": beds, "beds_available": beds, "eligible_types": ["medical"],
                                "osm_mapped": False, "temporary": True}
         self.log("clinic", f"Dispatcher deployed temporary medical post {hid} ({beds} simulated beds, 'medical' cases only)")

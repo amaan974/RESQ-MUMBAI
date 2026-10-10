@@ -142,7 +142,7 @@
   {
    "type": "flood_rescue",
    "priority": 2,
-   "label": "Kurla East — Nehru Nagar (scenario)",
+   "label": "Kurla East, Nehru Nagar (scenario)",
    "lat": 19.0635,
    "lon": 72.8875
   },
@@ -172,7 +172,7 @@
   {
    "type": "flood_rescue",
    "priority": 3,
-   "label": "Kurla — Mithi river bank (scenario)",
+   "label": "Kurla, Mithi river bank (scenario)",
    "lat": 19.075,
    "lon": 72.873
   },
@@ -187,21 +187,21 @@
  "shelters": [
   {
    "id": "SHL-1",
-   "name": "Shelter S-1 — school, Chembur side (simulated site)",
+   "name": "Shelter S-1: school, Chembur side (simulated site)",
    "lat": 19.059,
    "lon": 72.895,
    "capacity": 200
   },
   {
    "id": "SHL-2",
-   "name": "Shelter S-2 — community hall, Sion (simulated site)",
+   "name": "Shelter S-2: community hall, Sion (simulated site)",
    "lat": 19.042,
    "lon": 72.866,
    "capacity": 150
   },
   {
    "id": "SHL-3",
-   "name": "Shelter S-3 — ground, Vidyavihar (simulated site)",
+   "name": "Shelter S-3: ground, Vidyavihar (simulated site)",
    "lat": 19.077,
    "lon": 72.89,
    "capacity": 300

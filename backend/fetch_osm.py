@@ -24,7 +24,7 @@ def main():
         if isinstance(hw, list): hw = hw[0]
         edges.append({"u": str(u), "v": str(v), "key": int(k), "length_m": round(float(d["length"]), 1),
                       "highway": hw, "name": name, "geometry": coords})
-    out = {"meta": {"source": "OpenStreetMap via OSMnx " + ox.__version__, "license": "ODbL 1.0 — (c) OpenStreetMap contributors",
+    out = {"meta": {"source": "OpenStreetMap via OSMnx " + ox.__version__, "license": "ODbL 1.0, (c) OpenStreetMap contributors",
                     "retrieved_at": datetime.datetime.now(datetime.timezone.utc).isoformat(), "bbox_wsen": BBOX,
                     "filter": FILTER, "type": "REAL MAP GEOMETRY", "note": "largest strongly connected component"},
            "nodes": nodes, "edges": edges}

@@ -23,7 +23,7 @@ cd backend && .venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000
 cd frontend && npm install && npm run dev
 ```
 
-- Dispatcher dashboard: http://localhost:5173/
+- Dispatcher application: http://localhost:5173/ (Dispatch Center, Disaster Simulation, Resource Planning, Analytics & Reports, Data & Sources)
 - Citizen SOS (simulation): http://localhost:5173/sos
 - API docs: http://127.0.0.1:8000/docs
 
@@ -36,6 +36,25 @@ cd backend && python3 -m venv .venv && .venv/bin/pip install -r requirements-dev
 
 Offline fallback: `RESQ_SYNTHETIC=1` (or a missing `data/osm_graph.json`) loads a generated grid. The UI then labels it
 **SYNTHETIC ROAD NETWORK**.
+
+## Interface
+
+Dispatcher application (`frontend/src`), styled after `reference/approved_dispatch_ui.png`:
+
+| Route | Section | What it does |
+|---|---|---|
+| `/` | Dispatch Center | Summary cards, map with layer panel, incident queue, selected incident (Recommendation / Details / History), ambulance → patient → hospital chain, approval, route preview, backend reasons |
+| `/simulation` | Disaster Simulation | Add emergency, optimise, road and flood-zone closures (confirmed), reopen, hospital capacity, simulation clock, reset |
+| `/resources` | Resource Planning | Ambulance positioning, evacuation routes, temporary medical sites, fleet and hospital status |
+| `/analytics` | Analytics & Reports | Optimiser vs FIFO and priority-first baselines (live), seeded benchmark suite, event log |
+| `/sources` | Data & Sources | Provenance labels, graph metadata, hazard context, safety boundaries |
+| `/sos` | Citizen SOS | Standalone simulated SOS page (opens in a new tab from the sidebar) |
+
+- One polling loop (`store.tsx`) serves every page. Out-of-order responses are ignored.
+- If the backend stops answering for 10 s, a "connection lost" banner appears and all state-changing controls are
+  disabled.
+- Display logic is in `lib/derive.ts` and is unit-tested. The backend stays authoritative: the frontend never
+  computes routes or allocations.
 
 ## Deploy (Render backend + Vercel frontend)
 
@@ -65,7 +84,7 @@ cd backend && .venv/bin/python -m pytest -q
 ```
 
 ```bash
-cd frontend && npm run build
+cd frontend && npm run build && npm run lint && npm test
 ```
 
 The backend suite covers the 16 acceptance tests in `docs/ACCEPTANCE_TESTS.md`, plus 150 randomized brute-force optimality

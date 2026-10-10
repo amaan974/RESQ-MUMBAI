@@ -1,4 +1,4 @@
-"""RESQ Mumbai API — research simulation, NOT for real emergency use."""
+"""RESQ Mumbai API: research simulation, NOT for real emergency use."""
 from __future__ import annotations
 
 import os
@@ -18,7 +18,7 @@ def load_graph() -> RoadGraph:
     return RoadGraph.load_osm()
 
 
-app = FastAPI(title="RESQ Mumbai (simulation)", description="RESEARCH SIMULATION — NOT FOR REAL EMERGENCY USE")
+app = FastAPI(title="RESQ Mumbai (simulation)", description="RESEARCH SIMULATION. NOT FOR REAL EMERGENCY USE.")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 GRAPH = load_graph()
 STATE = Scenario(GRAPH)
@@ -93,7 +93,7 @@ def get_graph():
 def post_sos(body: SOSIn):
     inc, dup = guarded(STATE.add_sos, body.location_id, body.emergency_type, body.client_token)
     return {"request_id": inc["id"], "status": inc["status"], "duplicate": dup, "incident": inc,
-            "notice": "SIMULATION ONLY — DOES NOT CONTACT EMERGENCY SERVICES"}
+            "notice": "SIMULATION ONLY. DOES NOT CONTACT EMERGENCY SERVICES."}
 
 
 @app.get("/api/sos/{incident_id}")

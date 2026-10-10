@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { MapPin, Send, Stethoscope, TriangleAlert, Waves } from 'lucide-react'
 import { api, type State } from './api'
-import { Banner } from './Banner'
 
 function clientToken(): string {
   // Random non-personal token so the server can suppress accidental duplicate submissions.
@@ -15,13 +15,18 @@ function clientToken(): string {
 }
 
 const STATUS_TEXT: Record<string, string> = {
-  pending: 'Received by simulated dispatcher queue',
-  reviewed: 'Reviewed by simulated dispatcher',
-  recommended: 'A unit/hospital plan has been computed — awaiting dispatcher approval',
-  infeasible: 'No feasible unit/hospital right now — dispatcher alerted (simulation)',
-  approved: 'Dispatcher approved a (simulated) ambulance',
-  resolved: 'Closed (simulation)',
+  pending: 'Received in the simulated dispatcher queue.',
+  reviewed: 'Reviewed by the simulated dispatcher.',
+  recommended: 'A unit and hospital plan has been calculated. Waiting for dispatcher approval.',
+  infeasible: 'No feasible unit or hospital right now. The dispatcher has been alerted (simulation).',
+  approved: 'The dispatcher approved a simulated ambulance.',
+  resolved: 'Closed (simulation).',
 }
+
+const TYPES = [
+  { id: 'medical' as const, label: 'Medical emergency', icon: Stethoscope },
+  { id: 'flood_rescue' as const, label: 'Flood rescue', icon: Waves },
+]
 
 export default function SosPage() {
   const [locs, setLocs] = useState<State['sos_locations']>([])
@@ -64,43 +69,53 @@ export default function SosPage() {
 
   return (
     <div className="sos-page">
-      <Banner />
-      <div className="sos-card">
-        <h1>RESQ Mumbai — Citizen SOS <span className="badge b-sim">DEMO</span></h1>
-        <p className="sos-warn">SIMULATION ONLY — DOES NOT CONTACT EMERGENCY SERVICES. In a real emergency call <b>112</b> / <b>108</b>.</p>
-        <p className="small muted">No name, phone number, diagnosis or GPS is collected. You choose one of three predefined demo locations.</p>
+      <div className="sim-notice" role="note">Research simulation. Not for real emergency use.</div>
+      <main className="sos-card">
+        <h1>RESQ Mumbai citizen SOS</h1>
+        <p className="sos-warn" role="alert">
+          <TriangleAlert size={18} aria-hidden />
+          <span><b>SIMULATION ONLY. DOES NOT CONTACT EMERGENCY SERVICES.</b> In a real emergency call <b>112</b> or <b>108</b>.</span>
+        </p>
+        <p className="muted small">No name, phone number, diagnosis or GPS position is collected. Choose one of three predefined demonstration locations.</p>
 
-        <fieldset disabled={!!result || sending}>
+        <fieldset className="choice-group" disabled={!!result || sending}>
           <legend>Emergency type</legend>
           <div className="choice">
-            <button className={typ === 'medical' ? 'on' : ''} onClick={() => setTyp('medical')}>🩺 Medical emergency</button>
-            <button className={typ === 'flood_rescue' ? 'on' : ''} onClick={() => setTyp('flood_rescue')}>🌊 Flood rescue</button>
+            {TYPES.map(({ id, label, icon: Icon }) => (
+              <button key={id} type="button" className={typ === id ? 'on' : ''} aria-pressed={typ === id} onClick={() => setTyp(id)}>
+                <Icon size={18} aria-hidden /> {label}
+              </button>
+            ))}
           </div>
-          <legend>Demo location</legend>
+        </fieldset>
+        <fieldset className="choice-group" disabled={!!result || sending}>
+          <legend>Demonstration location</legend>
           <div className="choice">
             {locs.map((l) => (
-              <button key={l.id} className={loc === l.id ? 'on' : ''} onClick={() => setLoc(l.id)}>📍 {l.label}</button>
+              <button key={l.id} type="button" className={loc === l.id ? 'on' : ''} aria-pressed={loc === l.id} onClick={() => setLoc(l.id)}>
+                <MapPin size={18} aria-hidden /> {l.label}
+              </button>
             ))}
           </div>
         </fieldset>
 
         {!result ? (
-          <button className="sos-btn" disabled={sending || locs.length === 0} onClick={send}>
-            {sending ? 'Sending…' : 'SEND SIMULATED SOS'}
+          <button type="button" className="sos-btn" disabled={sending || locs.length === 0} onClick={send}>
+            <Send size={18} aria-hidden /> {sending ? 'Sending' : 'Send simulated SOS'}
           </button>
         ) : (
-          <div className="sos-result">
-            <div>Request ID</div>
+          <div className="sos-result" role="status" aria-live="polite">
+            <div className="muted">Request ID</div>
             <div className="rid">{result.id}</div>
-            {result.duplicate && <div className="warn-text small">Duplicate submission suppressed — showing your existing request.</div>}
+            {result.duplicate && <div className="warn-text small">Duplicate submission suppressed. Showing your existing request.</div>}
             <div className="status">Status: <b>{status}</b></div>
             <div className="small">{status ? STATUS_TEXT[status] ?? status : ''}</div>
-            <button className="link-btn" onClick={() => { setResult(null); setStatus(null) }}>Send a different simulated SOS</button>
+            <button type="button" className="link-btn" onClick={() => { setResult(null); setStatus(null) }}>Send a different simulated SOS</button>
           </div>
         )}
-        {err && <div className="bad-text">{err}</div>}
-        <div className="small muted foot">Status reflects the simulated dispatcher state on the shared backend. <Link to="/">Dispatcher dashboard</Link></div>
-      </div>
+        {err && <p className="bad-text" role="alert">{err}</p>}
+        <p className="small muted foot">Status reflects the shared simulated dispatcher state. <Link to="/">Dispatcher view</Link></p>
+      </main>
     </div>
   )
 }

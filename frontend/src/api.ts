@@ -1,4 +1,4 @@
-// Typed client for the RESQ Mumbai simulation backend (FastAPI, proxied at /api).
+// Typed client for the RESQ Mumbai simulation backend (FastAPI). Display helpers live in lib/derive.ts.
 export type LatLng = [number, number]
 
 export interface Route {
@@ -184,8 +184,3 @@ export const api = {
   deployClinic: (site_id: string, beds: number) => call('POST', '/clinic/deploy', { site_id, beds }),
   applyPositioning: (ambulance_id: string, staging_site_id: string) => call('POST', '/positioning/apply', { ambulance_id, staging_site_id }),
 }
-
-export const PRIORITY: Record<number, string> = { 3: 'HIGH', 2: 'MEDIUM', 1: 'LOW' }
-export const TYPE_LABEL: Record<string, string> = { medical: 'Medical emergency', flood_rescue: 'Flood rescue', trauma: 'Trauma / injury' }
-export const fmtMin = (s: number | null | undefined) => (s == null ? '—' : `${(s / 60).toFixed(1)} min`)
-export const fmtKm = (m: number) => `${(m / 1000).toFixed(2)} km`

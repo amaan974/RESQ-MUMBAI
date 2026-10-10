@@ -24,6 +24,88 @@ Everything marked PASS below was actually executed. Re-run commands are at the b
 | 19:07–19:09 | **Robustness fix from a stress test**: one 8-incident instance took 1.6 s / 852k nodes, and hitting the node limit would have raised a server error. Added a dynamic resource-aware bound, a priority-greedy incumbent and an anytime fallback (best feasible plan, labelled "optimality not proven", never raises). Worst case now 21–32 ms, all 180 stress instances proven optimal; the benchmark results are identical (exactness check) |
 | 19:09 | **Feature freeze** (scheduled 20:04). Final verification below |
 
+## UI refactor — 2026-10-10 (branch `ui-refactor`, not deployed)
+
+Goal: match `reference/approved_dispatch_ui.png` without changing the optimiser, routing or API contracts.
+
+**Changed:**
+- **Frontend:** the single-page `Dashboard.tsx` was replaced by:
+  - an app shell: dark sidebar, top bar, simulation notice;
+  - one shared polling store;
+  - five routed sections, plus the standalone `/sos`;
+  - an accessible design system (tokens, focus rings, reduced motion, tabular numerals, three responsive tiers).
+- **Icons:** `lucide-react` replaces emoji.
+- **Map:** gained a layer panel with legend, leg focus ("Route" buttons), a session-cached road graph, and closure
+  restriction styling (red with white dashes).
+- **Backend:** wording only. Em dashes were removed from 18 display strings and 2 licence metadata strings; no logic
+  changed.
+- **Dependencies:**
+  - `lucide-react` (runtime).
+  - `vitest` (dev).
+  - Secondary pages are lazy-loaded, so the main bundle is 463.6 kB.
+
+**Left out of the screenshot on purpose (would be fake):**
+- search box
+- "Live" badge
+- IMD weather
+- Admin account
+- Satellite toggle
+- Settings
+- skyline photo
+- "On-site care ~2 min"
+
+All values come from the backend. Rainfall is shown only as Open-Meteo context.
+
+**Issues found by testing and fixed:**
+- The map's permanent incident label stayed on the previously selected incident, because react-leaflet ignores
+  later `permanent` changes. The tooltip now remounts when the selection changes.
+- At 1440×900 the Approve button was 200 px below the fold. The panels were compacted and widened to the
+  reference proportions; Approve is now at y≈760.
+- At 1024×768 it was still below the fold. The primary decision action is now sticky inside the incident panel and
+  verified clickable at y≈716.
+- On narrower screens the layer panel covered the map and the zoom controls. Zoom moved top-right, and the panel
+  starts collapsed below 1280 px.
+- The licence metadata still contained an em dash. Fixed at the source: the cached graph metadata and both fetch
+  scripts.
+
+**Verification (actually run, 2026-10-10 08:22 IST):**
+- `backend: pytest -q` → **188 passed**.
+- `frontend: npm test` (vitest) → **13 passed**.
+- `npm run build` → pass.
+- `npm run lint` → **0 warnings, 0 errors**.
+- `smoke_live.py http://127.0.0.1:8000` (local backend only; the shared Render deployment was not mutated) →
+  **SMOKE PASSED**.
+- Browser interaction checks on the real UI with a local backend, at 1440×900:
+  - SOS: double-click → one request; same-token resubmission flagged as a duplicate.
+  - The request appears in the queue. Row selection updates the panel, chain and map label.
+  - Approve → backend approved and ambulance dispatched.
+  - Sidebar navigation keeps the selection across pages.
+  - Clock and closure ahead of the unit → approved route unchanged, review flag set, unit holding, reroute suggested.
+  - Alert bar → Accept reroute → advance → Confirm handover. Result: completed, incident resolved, ambulance
+    available.
+  - Set full → replan with the reason recorded; +1 bed → replan.
+  - Flood zone: Cancel changes nothing; Confirm closes 78 edges and evacuation reports cut off. Reopen restores.
+  - Temporary post deployed (4 medical beds). Positioning approved (coverage 5 → 8 of 10).
+  - Analytics loads the live comparison and the seeded suite (57/3/0 against FIFO). The event log renders.
+  - Data labels are correct.
+  - Reset via its dialog restores the initial IDs and decisions.
+  - All hospitals full → explicit "No feasible recommendation" with the backend reason, and no Approve button.
+  - Backend stopped → "connection lost" banner and actions disabled. Backend restarted → automatic recovery.
+  - The map keeps the operator's pan across polls.
+  - Keyboard: Enter on a queue row selects it, the focus ring is visible, and there are no unlabelled buttons.
+  - No em dashes on any page.
+- Responsive checks:
+  - 1024 px: icon rail.
+  - 768 and 375 px: drawer navigation and single-column order (queue, incident and approval, map, preview,
+    explanation).
+  - No horizontal overflow on any page.
+
+**Limitations of this pass:**
+- Browser checks were scripted in the built-in browser. They are not committed as an automated end-to-end suite.
+- Pixel-level comparison with the reference was visual inspection, not an automated diff.
+- Screenshots of the secondary pages were not re-captured (the browser pane was hidden). `docs/screenshots/06–07`
+  show the new Dispatch Center.
+
 ## Acceptance tests (docs/ACCEPTANCE_TESTS.md)
 | # | Test | Status | Evidence |
 |---|---|---|---|

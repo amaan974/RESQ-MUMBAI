@@ -16,7 +16,7 @@ def main():
             continue
         c = row.geometry.centroid
         out.append({"osm_id": f"{idx[0]}/{idx[1]}", "name": name.strip(), "lat": round(c.y, 6), "lon": round(c.x, 6)})
-    meta = {"source": "OpenStreetMap via OSMnx " + ox.__version__, "license": "ODbL 1.0 — (c) OpenStreetMap contributors",
+    meta = {"source": "OpenStreetMap via OSMnx " + ox.__version__, "license": "ODbL 1.0, (c) OpenStreetMap contributors",
             "retrieved_at": datetime.datetime.now(datetime.timezone.utc).isoformat(), "bbox_wsen": BBOX,
             "note": "Mapped facility locations only. NOT live capacity, NOT verified service capability."}
     json.dump({"meta": meta, "hospitals": out}, open("data/osm_hospitals.json", "w"), indent=1)
